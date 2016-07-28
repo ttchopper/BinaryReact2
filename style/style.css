@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #ecf0f1;
+}
+
+
+.container {
+    width: 50%;
+    margin: 100px auto;
+    box-shadow: 0px 10px 6px -6px #777;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+
+/* .new-user {
+    border: 1px solid red;
+} */
+
+/* .container {
+    width: 400px;
+    margin-top: 100px;
+} */
+.input-group {
+    float: left;
+    width: 300px;
+}
+.btn-success {
+    float: right;
+}
+
+.list-group {
+    margin-top: 50px;
+    clear: both;
+
+}
+
+.list {
+    position: relative;
+}
+
+.btn-danger {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
