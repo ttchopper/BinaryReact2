@@ -1,14 +1,8 @@
-export function addUser(newUser) {
+export function addUser(user) {
     return {
         type: 'ADD',
-        name: newUser.name,
-        id: newUser.id
+        name: user.name,
+        id: user.id
     };
 }
 
-export function removeUser(userId) {
-    return {
-        type: 'REMOVE',
-        id: userId
-    };
-}

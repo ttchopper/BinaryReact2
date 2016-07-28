@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { removeUser } from '../actions/removeUser';
 class User extends Component {
     
 
@@ -11,7 +12,7 @@ class User extends Component {
                 <button 
                     type='button' 
                     className='btn btn-danger' 
-                    onClick={() => this.props.onRemove(this.props.index) }
+                    onClick={() => this.props.removeUser(this.props.index) }
                 >Remove</button>
             </div>
         );
@@ -19,10 +20,10 @@ class User extends Component {
 }
 
 
-function mapStateToProps(state) {
-    return {
-        users: state.users
-    };
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ removeUser: removeUser }, dispatch);
 }
 
-export default connect(mapStateToProps)(User);
+
+
+export default connect(null, mapDispatchToProps)(User);
