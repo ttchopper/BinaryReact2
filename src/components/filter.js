@@ -10,21 +10,39 @@ class Filter extends Component {
         this.state = {
             text: ''
         };
-        this.filter = this.filter.bind(this);
+        // this.filter = this.filter.bind(this);
     }
-    filter(event) {
+
+   
+    render() {
+       /* filter(event) {
         this.setState({ text: event.target.value });
         let text = this.state.text.toLowerCase().split('');
-        text.forEach((letter) => {
-            this.props.filter(letter);
+        console.log(this.props.users);
+        this.props.users.forEach((user) => {
+            if (user.name.indexOf(text) !== -1) {
+                this.props.filteru(user);
+            }
         });
-    }
-    render() {
+    }*/
+        // console.log(this.props.users);
         return (
             <input 
             type='search'
-            value={this.state.text}
-            onChange={(event) => this.filter(event)} 
+            // value={this.state.text}
+            onChange={(event) =>  {
+                this.setState({ text: event.target.value });
+                console.log(event.target.value);
+                var text = event.target.value.toLowerCase().replace(' ', '');
+                console.log(this.props.users);
+                this.props.users.forEach((user) => {
+                    console.log(user);
+                    if (user.name.toLowerCase().indexOf(text) === -1) {
+                        this.props.filter(user);
+                    }
+                    // this.props.filter(user);
+                });
+            }} 
             />
         );
     }
@@ -35,11 +53,11 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({filter: filter}, dispatch);
 }
 
-/*function mapStateToProps(state) {
+function mapStateToProps(state) {
     return {
-        users: state
+        users: state.users
     };
-}*/
+}
 
 
-export default connect(null, mapDispatchToProps)(Filter);
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);

@@ -5,7 +5,8 @@ const users = (state = [], action) => {
             ...state,
             {
                 name: action.name,
-                id: action.id
+                id: action.id,
+                filtered: false
             }
         ];
     
@@ -17,8 +18,11 @@ const users = (state = [], action) => {
    
 
     case 'FILTER':
-        return state.filter(function(user) {
-            return user.name.indexOf(action.letter) !== -1;
+        return state.map((user) => {
+            if(user.id === action.id) {
+                user.filtered = true;
+            }
+            return user;
         });
 
     default:

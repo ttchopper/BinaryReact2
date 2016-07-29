@@ -48,7 +48,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
-        users: state
+        users: state.users
     };
 }
 

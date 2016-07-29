@@ -6,8 +6,24 @@ import { addUser } from '../actions/addUser';
 class UserList extends Component {
     
     render() {
-        console.log(this.props.users);
-        let usersa = this.props.users.map( (user, index) => {
+        // console.log(this.props.users);
+     /*   let usersa = [];
+        for (let i = 0; i < this.props.users.length; i++) {
+            if (this.props.users[i].filtered === true) {
+                 
+                usersa.push(    <User
+                    name= { this.props.users[i].name } 
+                    key= { this.props.users[i].id } 
+                    index={ i } 
+                    onRemove={ this.props.onRemove} />);
+            }
+            else {
+                continue;
+            }
+*/
+        let usersa = this.props.users.filter( (user, index) => {
+            return user.filtered === false;
+        }).map((user, index) => {
             return <User
                 name= { user.name } 
                 key= { user.id } 

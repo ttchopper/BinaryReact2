@@ -1,6 +1,8 @@
-export function filter(letter) {
+export function filter(user) {
     return {
         type: 'FILTER',
-        letter: letter
+        // name: user.name,
+        id: user.id,
+        filtered: true
     };
 }
