@@ -10,22 +10,11 @@ class Filter extends Component {
         this.state = {
             text: ''
         };
-        // this.filter = this.filter.bind(this);
     }
 
    
     render() {
-       /* filter(event) {
-        this.setState({ text: event.target.value });
-        let text = this.state.text.toLowerCase().split('');
-        console.log(this.props.users);
-        this.props.users.forEach((user) => {
-            if (user.name.indexOf(text) !== -1) {
-                this.props.filteru(user);
-            }
-        });
-    }*/
-        // console.log(this.props.users);
+      
         return (
             <input 
             type='search'
