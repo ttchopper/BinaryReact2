@@ -34,11 +34,11 @@ class Filter extends Component {
             placeholder='Filter User By Name'
             onChange={(event) =>  {
                 this.setState({ text: event.target.value });
-                console.log(event.target.value);
+                
                 var text = event.target.value.toLowerCase().replace(' ', '');
-                console.log(this.props.users);
+    
                 this.props.users.forEach((user) => {
-                    console.log(user);
+               
                     if (user.name.toLowerCase().indexOf(text) === -1) {
                         this.props.filter(user);
                     }
