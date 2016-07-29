@@ -4,24 +4,23 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addUser } from '../actions/addUser';
 class UserList extends Component {
-    
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            search: ''
+        };
+    }
+
+    updateSearch(event) {
+        this.setState({search: event.target.value.substr(0, 20)});
+    }
     render() {
-        // console.log(this.props.users);
-     /*   let usersa = [];
-        for (let i = 0; i < this.props.users.length; i++) {
-            if (this.props.users[i].filtered === true) {
-                 
-                usersa.push(    <User
-                    name= { this.props.users[i].name } 
-                    key= { this.props.users[i].id } 
-                    index={ i } 
-                    onRemove={ this.props.onRemove} />);
-            }
-            else {
-                continue;
-            }
-*/
-        let usersa = this.props.users.filter( (user, index) => {
+        let filteredUsers = this.props.users.filter((user) => {
+            return user.name.indexOf(this.state.search) !== -1;
+        });
+
+        let users = filteredUsers.filter( (user, index) => {
             return user.filtered === false;
         }).map((user, index) => {
             return <User
@@ -32,9 +31,17 @@ class UserList extends Component {
         });
         
         return (
+            <div className='list'>
+            <input type='text'
+            value = {this.state.search}
+            placeholder = 'Filter By UserName' 
+            onChange={ this.updateSearch.bind(this)}
+            className='form-control' 
+            />
             <ul className='list-group'>
-                {usersa}
+                {users}
             </ul>
+            </div>
         );
     }
 }

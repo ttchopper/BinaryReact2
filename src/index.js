@@ -42,7 +42,6 @@ class App extends Component {
         return (
             <div>
                 <NewUser />
-                <Filter />
                 <UserList />
             </div>
         );
