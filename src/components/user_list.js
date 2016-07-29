@@ -16,9 +16,28 @@ class UserList extends Component {
         this.setState({search: event.target.value.substr(0, 20)});
     }
     render() {
+        let search = (text, search) => {
+            search = search.replace(/\ /g, '').toLowerCase();
+            let tokens = text.split('');
+            let searchPosition = 0;
 
-        let filteredUsers = this.props.users.filter((user) => {
-            return user.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+            tokens.forEach((char, i) => {
+                if (char.toLowerCase() === search[searchPosition]) {
+                    searchPosition++;
+                }
+                if (searchPosition >= search.length) {
+                    return false;
+                }
+            });
+
+            if (searchPosition != search.length) {
+                return '';
+            }
+
+            return tokens.join('');
+        }
+        let filteredUsers = this.props.users.filter(user => {
+            return search(user.name, this.state.search);
         });
 
         let users = filteredUsers.map((user, index) => {
