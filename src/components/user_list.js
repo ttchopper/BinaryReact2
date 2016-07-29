@@ -36,17 +36,9 @@ class UserList extends Component {
                 {usersa}
             </ul>
         );
-        /*return (
-            <ul className='list-group'>
-               
-            </ul>
-        );*/
     }
 }
 
-/*function mapDispatchToProps(dispatch) {
-    return bindActionCreators({addUser: addUser}, dispatch);
-}*/
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({addUser: addUser}, dispatch);
