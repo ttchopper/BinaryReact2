@@ -16,13 +16,12 @@ class UserList extends Component {
         this.setState({search: event.target.value.substr(0, 20)});
     }
     render() {
+
         let filteredUsers = this.props.users.filter((user) => {
-            return user.name.indexOf(this.state.search) !== -1;
+            return user.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
         });
 
-        let users = filteredUsers.filter( (user, index) => {
-            return user.filtered === false;
-        }).map((user, index) => {
+        let users = filteredUsers.map((user, index) => {
             return <User
                 name= { user.name } 
                 key= { user.id } 
@@ -32,15 +31,17 @@ class UserList extends Component {
         
         return (
             <div className='list'>
-            <input type='text'
-            value = {this.state.search}
-            placeholder = 'Filter By UserName' 
-            onChange={ this.updateSearch.bind(this)}
-            className='form-control' 
-            />
-            <ul className='list-group'>
-                {users}
-            </ul>
+                <input 
+                    type='text'
+                    value = {this.state.search}
+                    placeholder = 'Filter By UserName' 
+                    onChange={ this.updateSearch.bind(this)}
+                    className='form-control' 
+                />
+                <ul 
+                    className='list-group'>
+                    {users}
+                </ul>
             </div>
         );
     }

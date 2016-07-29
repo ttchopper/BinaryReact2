@@ -6,7 +6,7 @@ const users = (state = [], action) => {
             {
                 name: action.name,
                 id: action.id,
-                filtered: false
+               
             }
         ];
     
@@ -16,21 +16,6 @@ const users = (state = [], action) => {
             ...state.slice(action.user + 1)
         ];
    
-
-    case 'FILTER':
-        if (action.id) {
-            return state.map((user) => {
-                if(user.id === action.id) {
-                    user.filtered = true;
-                }
-                return user;
-            });
-        }
-        else {
-            return state;
-        }
-        
-
     default:
         return state;
     }
