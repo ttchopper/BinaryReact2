@@ -15,7 +15,9 @@ body {
     padding: 20px;
     border-radius: 5px;
 }
-
+ .form-control {
+    margin-bottom: 10px;
+ }
 
 /* .new-user {
     border: 1px solid red;

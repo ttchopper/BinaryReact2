@@ -18,12 +18,21 @@ const users = (state = [], action) => {
    
 
     case 'FILTER':
-        return state.map((user) => {
+        if (action.id) {
+            return state.map((user) => {
             if(user.id === action.id) {
                 user.filtered = true;
             }
+            /*else {
+                user.filtered = false;
+            }*/
             return user;
-        });
+            });
+        }
+        else {
+            return state;
+        }
+        
 
     default:
         return state;

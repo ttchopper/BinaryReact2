@@ -29,7 +29,9 @@ class Filter extends Component {
         return (
             <input 
             type='search'
-            // value={this.state.text}
+            value={this.state.text}
+            className='form-control' 
+            placeholder='Filter User By Name'
             onChange={(event) =>  {
                 this.setState({ text: event.target.value });
                 console.log(event.target.value);
