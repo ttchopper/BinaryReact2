@@ -31,7 +31,7 @@ class Filter extends Component {
                     if (user.name.toLowerCase().indexOf(text) === -1) {
                         this.props.filter(user);
                     }
-                    // this.props.filter(user);
+                 
                 });
             }} 
             />
